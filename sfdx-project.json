@@ -1,0 +1,24 @@
+{
+	"packageDirectories": [
+        {
+			"path": "src/soql-lib",
+			"default": false
+		},
+        {
+			"path": "src/fflib",
+			"default": false
+		},
+		{
+			"path": "src/examples",
+			"default": false
+		},
+		{
+			"path": "src/tmp",
+			"default": true
+		}
+	],
+	"name": "SelectorsAndMocks",
+	"namespace": "",
+	"sfdcLoginUrl": "https://login.salesforce.com",
+	"sourceApiVersion": "56.0"
+}
