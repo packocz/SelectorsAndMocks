@@ -6,4 +6,8 @@ public with sharing class Application {
 			User.SObjectType => UserSelector.class
 		}
 	);
+
+	public static final fflib_Application.ServiceFactory Service = new fflib_Application.ServiceFactory(
+		new Map<Type, Type>{ IAccountSomethingService.class => AccountSomethingServiceImpl.class }
+	);
 }

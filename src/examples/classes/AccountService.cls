@@ -1,4 +1,8 @@
 public with sharing class AccountService {
+	public static AccountService newInstance() {
+		return (AccountService) Factory.newInstanceOf(AccountService.class);
+	}
+
 	public void doSomethingBasic(Set<Id> accountIds) {
 		List<Account> accountsToDoMagicWith = Application.Selector.selectById(accountIds);
 		System.debug('doSomethingBasic');
@@ -40,7 +44,7 @@ public with sharing class AccountService {
 		List<Account> accountsToDoMagicWith = (List<Account>) Database.query(
 			accounts.newQueryFactory()
 				.selectFields(new List<SObjectField>{ Schema.Account.OwnerId, Schema.Account.LastModifiedDate })
-				.setCondition('PersonEmail = NULL')
+				.setCondition('Website = NULL')
 				.addOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.DESCENDING, false)
 				.setLimit(5)
 				.toSOQL()
@@ -54,7 +58,7 @@ public with sharing class AccountService {
 	public void doSomethingSpecial2() {
 		List<Account> accountsToDoMagicWith = AccountSOQL.query()
 			.with(new List<SObjectField>{ Schema.Account.OwnerId, Schema.Account.LastModifiedDate })
-			.whereAre(SOQL.Filter.with(Account.PersonEmail).equal(null))
+			.whereAre(SOQL.Filter.with(Account.Website).equal(null))
 			.orderBy('LastModifiedDate', 'DESC')
 			.setLimit(5)
 			.mockId('Service.method')

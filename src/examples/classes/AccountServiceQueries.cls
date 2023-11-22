@@ -6,7 +6,7 @@ public with sharing class AccountServiceQueries {
 		System.debug(
 			accounts.newQueryFactory()
 				.selectFields(new List<SObjectField>{ Schema.Account.OwnerId, Schema.Account.LastModifiedDate })
-				.setCondition('PersonEmail = NULL')
+				.setCondition('Website = NULL')
 				.addOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.DESCENDING, false)
 				.setLimit(5)
 				.toSOQL()
@@ -17,7 +17,7 @@ public with sharing class AccountServiceQueries {
 		System.debug(
 			AccountSOQL.query()
 				.with(new List<SObjectField>{ Schema.Account.OwnerId, Schema.Account.LastModifiedDate })
-				.whereAre(SOQL.Filter.with(Account.PersonEmail).equal(null))
+				.whereAre(SOQL.Filter.with(Account.Website).equal(null))
 				.orderBy('LastModifiedDate', 'DESC')
 				.setLimit(5)
 				.toString()

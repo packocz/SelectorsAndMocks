@@ -13,7 +13,7 @@ public with sharing class AccountSelector extends fflib_SObjectSelector {
 		return new List<Schema.SObjectField>{
 			Schema.Account.Id,
 			Schema.Account.Name,
-			Schema.Account.PersonEmail,
+			Schema.Account.Website,
 			Schema.Account.Description,
 			Schema.Account.BillingAddress
 		};

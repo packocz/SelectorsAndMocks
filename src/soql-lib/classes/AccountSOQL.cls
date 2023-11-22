@@ -6,9 +6,7 @@ public with sharing class AccountSOQL extends SOQL implements SOQL.Selector {
 	private AccountSOQL() {
 		super(Account.SObjectType);
 		// default settings
-		with(Account.Id, Account.Name, Account.PersonEmail, Account.Description, Account.BillingAddress)
-			.withSharing()
-			.orderBy('Name', 'DESC');
+		with(Account.Id, Account.Name, Account.Website, Account.Description, Account.BillingAddress).withSharing().orderBy('Name', 'DESC');
 	}
 
 	public AccountSOQL byRecordTypeDeveloperName(String rt) {
